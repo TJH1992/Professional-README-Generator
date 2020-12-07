@@ -39,7 +39,7 @@ const questions = [
 
     {
         type: 'input',
-        name: 'projectInstallion',
+        name: 'projectInstallation',
         message: 'Please enter the required steps for your project installation (step-by-step instructions for installation): '
     },
 
@@ -47,12 +47,6 @@ const questions = [
         type: 'input',
         name: 'projectVisual',
         message: 'Please provide a file path of a visual respresentation of your project (i.e. Screenshots or Videos): '
-    },
-
-    {
-        type: 'input',
-        name: 'projectTest',
-        message: 'Please provide any tests you want included with your project: '
     },
 
     {
@@ -103,31 +97,15 @@ const questions = [
     },
 ];
 
-const promptUserResponse = () => {
-    //for (const value of questions) {
-       return inquirer.prompt(questions)
-    
-    .then(userResponse => {
-        return generateMarkdown(userResponse);
-    })
-    .catch(err => {
-        console.log(err);
-    })
-}
-
-// function to write README file
-// function writeToFile(fileName, data) {
-//     fs.writeFile(fileName, JSON.stringify(data))
-// }
 
 // function to initialize program
 async function init() {
     try {
-        const userResponse = await promptUserResponse();
+        const userResponse = await inquirer.prompt(questions);
         const generateReadMe = generateMarkdown(userResponse);
 
-        await writeFile('./dist./README.md', generateReadMe);
-        console.log('README is complete')
+        await writeFile('./README.md', generateReadMe);
+        console.log('README file is complete')
     }
     catch(err) {
         console.log(err);

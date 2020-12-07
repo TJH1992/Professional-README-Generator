@@ -1,5 +1,3 @@
-const fs = require('fs');
-
 // function to generate markdown for README
 function generateMarkdown(userResponse) {
   return `
@@ -15,13 +13,12 @@ function generateMarkdown(userResponse) {
   - [Installation](#projectInstallation)
   - [License](#projectLicense)
   - [Contributors For This Project](#projectContributors)
-  - [Tests](#projectTest)
 
   ## Description
   ${userResponse.projectDescription}
 
   ## Languages Used
-  ${userResponse.projectLanuages}
+  ${userResponse.projectLanguages}
 
   ## Installation
   ${userResponse.projectInstallation}
@@ -32,14 +29,10 @@ function generateMarkdown(userResponse) {
   ## Contributors For This Project
   ${userResponse.projectContributors}
 
-  ## Tests
-  ${userResponse.projectTest}
-  <br />
-
   Connect with me on GitHub: [${userResponse.userGitHub}](https://github.com/${userResponse.userGitHub})<br />
   <br />
 
-  Contact with me via email: ${userResponse.userEmail}<br />
+  Contact me via email at: ${userResponse.userEmail}<br />
   <br />
 `;
 }
